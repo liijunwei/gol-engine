@@ -137,7 +137,18 @@ RSpec.describe GolEngine::Game do
         ])
       end
 
-      it "dies with 8 alive neighbors(overpopulation)"
+      it "dies with 8 alive neighbors(overpopulation)" do
+        world1 = [
+          [:alive, :alive, :alive],
+          [:alive, :alive, :alive],
+          [:alive, :alive, :alive]
+        ]
+        expect(subject.tick(world1)).to eq([
+          [:alive, :dead, :alive],
+          [:dead, :dead, :dead],
+          [:alive, :dead, :alive]
+        ])
+      end
     end
 
     context "when current cell is dead" do
