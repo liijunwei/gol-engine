@@ -6,24 +6,28 @@ RSpec.describe GolEngine::Game do
   end
 
   describe "#tick" do
-    it "keeps dead cells with 0 alive neighbors"
+    context "when current cell is alive" do
+      it "dies with 0 alive neighbors(underpopulation)"
+      it "dies with 1 alive neighbors(underpopulation)"
+      it "survives with 2 alive neighbors"
+      it "survives with 3 alive neighbors"
+      it "dies with 4 alive neighbors(overpopulation)"
+      it "dies with 5 alive neighbors(overpopulation)"
+      it "dies with 6 alive neighbors(overpopulation)"
+      it "dies with 7 alive neighbors(overpopulation)"
+      it "dies with 8 alive neighbors(overpopulation)"
+    end
 
-    it "kills alive cells with 0 alive neighbors"
-
-    it "keeps dead cells with 1 alive neighbors"
-
-    it "kills alive cells with 1 alive neighbors"
-
-    it "keeps dead cells with 2 alive neighbors"
-
-    it "keeps alive cells with 2 alive neighbors"
-
-    it "awakes dead cells with 3 alive neighbors"
-
-    it "keeps alive cells with 3 alive neighbors"
-
-    it "keeps dead cells with 4 alive neighbors"
-
-    it "kills alive cells with 4 alive neighbors"
+    context "when current cell is dead" do
+      it "stays dead with 0 alive neighbors"
+      it "stays dead with 1 alive neighbors"
+      it "stays dead with 2 alive neighbors"
+      it "becomes a live cell with 3 alive neighbors(reproduction)"
+      it "stays dead 4 alive neighbors"
+      it "stays dead 5 alive neighbors"
+      it "stays dead 6 alive neighbors"
+      it "stays dead 7 alive neighbors"
+      it "stays dead 8 alive neighbors"
+    end
   end
 end
