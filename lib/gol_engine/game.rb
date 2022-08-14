@@ -2,12 +2,12 @@
 
 module GolEngine
   class Game
-    def tick(world)
-      world1 = GolEngine::World.new(world)
+    def tick(old_world)
+      world = GolEngine::World.new(old_world)
 
-      world1.grid.map.with_index do |row, i|
+      world.grid.map.with_index do |row, i|
         row.map.with_index do |cell, j|
-          case world1.active_neighbors(i, j)
+          case world.active_neighbors(i, j)
           when 0
             :dead
           when 1
