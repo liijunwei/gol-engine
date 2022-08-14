@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe GolEngine::Game do
-  it "responds to #tick" do
-    expect(subject).to respond_to(:tick)
-  end
-
   describe "#tick" do
     context "when current cell is alive" do
       it "dies with 0 alive neighbors(underpopulation)" do
