@@ -65,6 +65,17 @@ RSpec.describe GolEngine::Game do
           [:alive, :dead],
           [:alive, :dead, :alive]
         ])
+
+        world2 = [
+          [:alive, :alive],
+          [:alive, :alive],
+          [:alive],
+        ]
+        expect(subject.tick(world2)).to eq([
+          [:alive, :alive],
+          [:dead, :dead],
+          [:alive],
+        ])
       end
 
       it "dies with 5 alive neighbors(overpopulation)"
