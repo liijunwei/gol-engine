@@ -18,8 +18,11 @@ RSpec.describe GolEngine::Game do
       end
 
       it "survives with 2 alive neighbors" do
-        world = [[:alive, :alive, :alive]]
-        expect(subject.tick(world)).to eq([[:dead, :alive, :dead]])
+        world1 = [[:alive, :alive, :alive]]
+        expect(subject.tick(world1)).to eq([[:dead, :alive, :dead]])
+
+        world2 = [[:alive],[:alive],[:alive]]
+        expect(subject.tick(world2)).to eq([[:dead],[:alive],[:dead]])
       end
 
       it "survives with 3 alive neighbors"
