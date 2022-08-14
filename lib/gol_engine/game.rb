@@ -2,7 +2,11 @@
 
 module GolEngine
   class Game
-    def tick
+    def tick(world)
+      [
+        [],
+        [nil, :dead]
+      ]
     end
   end
 end

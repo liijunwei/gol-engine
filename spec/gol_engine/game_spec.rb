@@ -7,7 +7,15 @@ RSpec.describe GolEngine::Game do
 
   describe "#tick" do
     context "when current cell is alive" do
-      it "dies with 0 alive neighbors(underpopulation)"
+      it "dies with 0 alive neighbors(underpopulation)" do
+        world = [
+                  [:dead, :dead,  :dead],
+                  [:dead, :alive, :dead],
+                  [:dead, :dead,  :dead]
+                ]
+        expect(subject.tick(world)[1][1]).to eq(:dead)
+      end
+
       it "dies with 1 alive neighbors(underpopulation)"
       it "survives with 2 alive neighbors"
       it "survives with 3 alive neighbors"
