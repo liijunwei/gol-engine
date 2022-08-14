@@ -7,6 +7,7 @@ module GolEngine
 
       world.map.with_index do |row, i|
         row.map.with_index do |cell, j|
+          world1.active_neighbors(i, j)
           case active_neighbors(world, i, j)
           when 0
             :dead
