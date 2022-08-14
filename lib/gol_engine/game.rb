@@ -3,6 +3,8 @@
 module GolEngine
   class Game
     def tick(world)
+      world1 = GolEngine::World.new(world)
+
       world.map.with_index do |row, i|
         row.map.with_index do |cell, j|
           case active_neighbors(world, i, j)
