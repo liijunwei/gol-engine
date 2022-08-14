@@ -180,7 +180,38 @@ RSpec.describe GolEngine::World do
   end
 
   describe "#fetch" do
-    context "when current cell is alive"
-    context "when current cell is dead"
+    it "gets the value within boundary" do
+      world = described_class.new([
+        [:alive, :alive],
+        [:alive, :dead, :alive]
+      ])
+      expect(world.fetch(0, 0)).to eq(:alive)
+      expect(world.fetch(0, 1)).to eq(:alive)
+      expect(world.fetch(1, 0)).to eq(:alive)
+      expect(world.fetch(1, 1)).to eq(:dead)
+      expect(world.fetch(1, 2)).to eq(:alive)
+    end
+
+    it "fails for out of x boundary" do
+      world = described_class.new([
+        [:alive, :alive],
+        [:alive, :dead, :alive]
+      ])
+      expect(world.fetch(-10, 0)).to be_nil
+      expect(world.fetch(-1, 0)).to be_nil
+      expect(world.fetch(2, 0)).to be_nil
+      expect(world.fetch(20, 0)).to be_nil
+    end
+
+    it "fails for out of y boundary" do
+      world = described_class.new([
+        [:alive, :alive],
+        [:alive, :dead, :alive]
+      ])
+      expect(world.fetch(0, -10)).to be_nil
+      expect(world.fetch(0, -1)).to be_nil
+      expect(world.fetch(0, 2)).to be_nil
+      expect(world.fetch(0, 20)).to be_nil
+    end
   end
 end
