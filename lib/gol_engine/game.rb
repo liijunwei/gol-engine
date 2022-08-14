@@ -2,6 +2,7 @@
 
 module GolEngine
   class Game
-
+    def tick
+    end
   end
 end
