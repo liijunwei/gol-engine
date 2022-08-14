@@ -170,7 +170,37 @@ RSpec.describe GolEngine::Game do
         expect(subject.tick(world2)).to eq([[:dead],[:dead],[:dead]])
       end
 
-      it "becomes a live cell with 3 alive neighbors(reproduction)"
+      it "becomes a live cell with 3 alive neighbors(reproduction)" do
+        world1 = [
+          [:alive, :alive],
+          [:alive, :dead]
+        ]
+        expect(subject.tick(world1)).to eq([
+          [:alive, :alive],
+          [:alive, :alive]
+        ])
+
+        world2 = [
+          [:alive],
+          [:alive, :dead, :alive],
+        ]
+        expect(subject.tick(world2)).to eq([
+          [:dead],
+          [:dead, :alive, :dead],
+        ])
+
+        world3 = [
+          [:alive, :alive],
+          [:dead],
+          [:alive]
+        ]
+        expect(subject.tick(world3)).to eq([
+          [:dead, :dead],
+          [:alive],
+          [:dead]
+        ])
+      end
+
       it "stays dead 4 alive neighbors"
       it "stays dead 5 alive neighbors"
       it "stays dead 6 alive neighbors"
