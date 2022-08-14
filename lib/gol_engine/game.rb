@@ -16,6 +16,8 @@ module GolEngine
             :alive
           when 4
             :dead
+          when 5
+            :dead
           end
         end
       end
