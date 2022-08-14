@@ -8,7 +8,7 @@ module GolEngine
       @grid = grid
     end
 
-    def active_neighbors(i, j)
+    def active_neighbors_of(i, j)
       [i - 1, i , i + 1].product([j - 1, j , j + 1])
         .reject {|ni, nj| ni == i && nj == j}
         .map {|ni, nj| fetch(ni, nj)}

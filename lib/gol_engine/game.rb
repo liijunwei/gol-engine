@@ -8,7 +8,7 @@ module GolEngine
       new_world =
       world.grid.map.with_index do |row, i|
         row.map.with_index do |cell, j|
-          case world.active_neighbors(i, j)
+          case world.active_neighbors_of(i, j)
           when 0
             :dead
           when 1
