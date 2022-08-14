@@ -12,6 +12,8 @@ module GolEngine
             :dead
           when 2
             :alive
+          when 3
+            :alive
           end
         end
       end
@@ -30,7 +32,7 @@ module GolEngine
       return if i < 0
       return if i >= world.size
       return if j < 0
-      return if j >= world[0].size
+      return if j >= world[i].size
 
       return world[i][j]
     end
