@@ -8,3 +8,4 @@ gem "rake"
 gem "rspec"
 gem "rubocop"
 gem "pry"
+gem 'guard-rspec', require: false
