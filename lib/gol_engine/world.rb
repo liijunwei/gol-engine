@@ -2,10 +2,10 @@
 
 module GolEngine
   class World
-    attr_reader :world
+    attr_reader :grid
 
-    def initialize(world)
-      @world = world
+    def initialize(grid)
+      @grid = grid
     end
 
     def active_neighbors(i, j)
@@ -17,11 +17,11 @@ module GolEngine
 
     def fetch(i, j)
       return if i < 0
-      return if i >= world.size
+      return if i >= grid.size
       return if j < 0
-      return if j >= world[i].size
+      return if j >= grid[i].size
 
-      return world[i][j]
+      return grid[i][j]
     end
   end
 end

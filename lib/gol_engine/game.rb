@@ -5,7 +5,7 @@ module GolEngine
     def tick(world)
       world1 = GolEngine::World.new(world)
 
-      world.map.with_index do |row, i|
+      world1.grid.map.with_index do |row, i|
         row.map.with_index do |cell, j|
           case world1.active_neighbors(i, j)
           when 0
