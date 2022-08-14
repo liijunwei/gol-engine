@@ -11,7 +11,7 @@ module GolEngine
           when 1
             :dead
           when 2
-            :alive
+            cell == :alive ? :alive : :dead
           when 3
             :alive
           else

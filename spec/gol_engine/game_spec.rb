@@ -152,9 +152,24 @@ RSpec.describe GolEngine::Game do
     end
 
     context "when current cell is dead" do
-      it "stays dead with 0 alive neighbors"
-      it "stays dead with 1 alive neighbors"
-      it "stays dead with 2 alive neighbors"
+      it "stays dead with 0 alive neighbors" do
+        world = [[:dead]]
+        expect(subject.tick(world)).to eq([[:dead]])
+      end
+
+      it "stays dead with 1 alive neighbors" do
+        world = [[:alive, :dead]]
+        expect(subject.tick(world)).to eq([[:dead, :dead]])
+      end
+
+      it "stays dead with 2 alive neighbors" do
+        world1 = [[:alive, :dead, :alive]]
+        expect(subject.tick(world1)).to eq([[:dead, :dead, :dead]])
+
+        world2 = [[:alive],[:dead],[:alive]]
+        expect(subject.tick(world2)).to eq([[:dead],[:dead],[:dead]])
+      end
+
       it "becomes a live cell with 3 alive neighbors(reproduction)"
       it "stays dead 4 alive neighbors"
       it "stays dead 5 alive neighbors"
