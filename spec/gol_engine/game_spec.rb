@@ -9,8 +9,11 @@ RSpec.describe GolEngine::Game do
       end
 
       it "dies with 1 alive neighbors(underpopulation)" do
-        world = [[:alive, :alive]]
-        expect(subject.tick(world)).to eq([[:dead, :dead]])
+        world1 = [[:alive, :alive]]
+        expect(subject.tick(world1)).to eq([[:dead, :dead]])
+
+        worl2 = [[:alive], [:alive]]
+        expect(subject.tick(worl2)).to eq([[:dead], [:dead]])
       end
 
       it "survives with 2 alive neighbors" do
@@ -19,6 +22,12 @@ RSpec.describe GolEngine::Game do
 
         world2 = [[:alive],[:alive],[:alive]]
         expect(subject.tick(world2)).to eq([[:dead],[:alive],[:dead]])
+
+        world3 = [
+          [:alive],
+          [:alive, :alive]
+        ]
+        expect(subject.tick(world3)).to eq([[:alive],[:alive, :alive]])
       end
 
       it "survives with 3 alive neighbors" do
