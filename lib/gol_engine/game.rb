@@ -20,6 +20,8 @@ module GolEngine
             :dead
           when 6
             :dead
+          when 7
+            :dead
           end
         end
       end
