@@ -14,6 +14,7 @@ desc 'Run RSpec with code coverage'
 task :coverage do
   ENV['COVERAGE'] = 'true'
   Rake::Task['spec'].execute
+  sh "open coverage/index.html" rescue nil
 end
 
 task default: %i[spec]
