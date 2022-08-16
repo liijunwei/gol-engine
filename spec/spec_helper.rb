@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-require "gol_engine"
-require "pry"
-
 if ENV.fetch('COVERAGE', 'f').start_with? 't'
   require 'simplecov'
   SimpleCov.start
 end
+
+require "gol_engine"
+require "pry"
+
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
