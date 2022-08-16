@@ -8,4 +8,5 @@ gem "rake"
 gem "rspec"
 gem "rubocop"
 gem "pry"
+gem "simplecov"
 gem 'guard-rspec', require: false

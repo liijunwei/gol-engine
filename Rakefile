@@ -9,4 +9,11 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
+# ref: rubocop-ast Rakefile
+desc 'Run RSpec with code coverage'
+task :coverage do
+  ENV['COVERAGE'] = 'true'
+  Rake::Task['spec'].execute
+end
+
 task default: %i[spec]
